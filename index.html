@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kafka Lag Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">Kafka operations helper</p>
+      <h1>Kafka Lag Viewer</h1>
+      <p class="intro">Paste the output of <code>kafka-consumer-groups.sh --describe</code> to inspect lag without connecting to Kafka.</p>
+    </header>
+    <section class="input-card" aria-labelledby="input-heading">
+      <div class="section-heading"><h2 id="input-heading">Consumer group output</h2><span class="sample-label">Local only</span></div>
+      <label for="input">Paste command output</label>
+      <textarea id="input" rows="12" spellcheck="false" placeholder="GROUP TOPIC PARTITION CURRENT-OFFSET LOG-END-OFFSET LAG ..."></textarea>
+      <div class="actions"><button id="analyze" type="button">Analyze</button><button id="load-example" class="secondary" type="button">Load example</button><button id="copy" class="secondary" type="button">Copy summary as Markdown</button></div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+    <section aria-labelledby="results-heading"><h2 id="results-heading">Results</h2><div id="output"></div></section>
+    <footer>Reads pasted text in your browser. It does not connect to Kafka or send data anywhere.</footer>
+  </main>
+  <script src="lag.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
